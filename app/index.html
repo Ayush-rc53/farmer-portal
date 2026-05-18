@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KRISHILUXE | Premium Farm-to-Consumer Indian Marketplace</title>
+    <!-- Google Fonts & FontAwesome for Luxury Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- FLOATING NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">KRISHI<span>LUXE</span></a>
+
+            <ul class="nav-links">
+                <li><a href="#hero" class="active">Home</a></li>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#farmers">Our Farmers</a></li>
+                <li><a href="#marketplace">Marketplace</a></li>
+                <li><a href="#transparency">Traceability</a></li>
+                <li><a href="#dashboard">Kisan Portal</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <div class="cart-icon" id="cartToggle">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="cart-count">0</span>
+                </div>
+                <a href="#marketplace" class="btn btn-primary btn-nav">Shop Fresh</a>
+                <button class="mobile-menu-btn" id="menuToggle">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SIDE CART OVERLAY -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Your Basket</h3>
+            <button id="closeCart"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="cart-items" id="cartItemsContainer">
+            <!-- Dynamic JS entry -->
+            <div class="empty-cart-msg">Your basket is currently empty.</div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Estimated Total:</span>
+                <span id="cartTotalValue">₹0</span>
+            </div>
+            <button class="btn btn-primary w-100">Proceed to Checkout</button>
+        </div>
+    </div>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- 1. HERO SECTION -->
+    <section id="hero" class="hero-section">
+        <div class="hero-bg">
+            <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1800&q=80"
+                alt="Indian Sunrise Farm">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="badge-reveal">
+                <span class="premium-badge"><i class="fa-solid fa-wheat-awn"></i> Direct Vedic Sourcing</span>
+            </div>
+            <h1>Fresh From Farms <br><span class="italic-text">To Your Home</span></h1>
+            <p class="hero-subtitle">Experience organic luxury. Bypass commercial mandis and acquire high-fidelity
+                harvest directly from India's master soil architects.</p>
+
+            <div class="search-wrapper">
+                <div class="search-box">
+                    <i class="fa-solid fa-location-dot icon-left"></i>
+                    <input type="text" id="heroSearchInput"
+                        placeholder="Search Organic Ghee, Alphonso, or your local state harvest...">
+                    <button class="btn btn-primary" id="heroSearchBtn">Discover</button>
+                </div>
+            </div>
+
+            <div class="hero-ctas">
+                <a href="#marketplace" class="btn btn-primary">Explore Products</a>
+                <a href="#dashboard" class="btn btn-secondary">Become a Seller</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. PRODUCT CATEGORIES -->
+    <section id="categories" class="section category-section">
+        <div class="section-header">
+            <span class="sub-title">Curated Segments</span>
+            <h2>Agricultural Disciplines</h2>
+        </div>
+        <div class="category-grid">
+            <div class="category-card" data-category="vegetables">
+                <img src="https://images.unsplash.com/photo-1566385101042-1a0aa0c1268c?auto=format&fit=crop&w=500&q=80"
+                    alt="Vegetables">
+                <div class="category-info">
+                    <h3>Organic Veggies</h3>
+                    <span>Crisp & Clean</span>
+                </div>
+            </div>
+            <div class="category-card" data-category="fruits">
+                <img src="https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=500&q=80"
+                    alt="Fruits">
+                <div class="category-info">
+                    <h3>Native Fruits</h3>
+                    <span>Sun-Ripened</span>
+                </div>
+            </div>
+            <div class="category-card" data-category="dairy">
+                <img src="https://images.unsplash.com/photo-1608475861994-cf7af0f0c1be?auto=format&fit=crop&w=500&q=80"
+                    alt="Dairy">
+                <div class="category-info">
+                    <h3>A2 Vedic Dairy</h3>
+                    <span>Artisanal Churned</span>
+                </div>
+            </div>
+            <div class="category-card" data-category="grains">
+                <img src="https://images.unsplash.com/photo-1574325131876-a799998936bb?auto=format&fit=crop&w=500&q=80"
+                    alt="Grains">
+                <div class="category-info">
+                    <h3>Heirloom Grains</h3>
+                    <span>Ancient Millets & Grains</span>
+                </div>
+            </div>
+            <div class="category-card" data-category="honey">
+                <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=500&q=80"
+                    alt="melon">
+                <div class="category-info">
+                    <h3>melon</h3>
+                    <span>fresh and red </span>
+                </div>
+            </div>
+            <div class="category-card" data-category="herbs">
+                <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=500&q=80"
+                    alt="Herbs">
+                <div class="category-info">
+                    <h3>Ayurvedic Herbs</h3>
+                    <span>Medicinal Botanicals</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. SMART FARMER DISCOVERY -->
+    <section id="farmers" class="section farmers-section">
+        <div class="section-header-row">
+            <div class="section-header">
+                <span class="sub-title">Soil Guardians</span>
+                <h2>Meet The Producers</h2>
+            </div>
+            <div class="filter-controls">
+                <button class="filter-btn active" data-location="all">All Regions</button>
+                <button class="filter-btn" data-location="Punjab Plains">Punjab Plains</button>
+                <button class="filter-btn" data-location="Western Ghats">Western Ghats</button>
+                <button class="filter-btn" data-location="Ooty Hills">Ooty Hills</button>
+            </div>
+        </div>
+
+        <div class="farmers-grid" id="farmersGrid">
+            <!-- Farmer Card 1 -->
+            <div class="farmer-card" data-loc="Punjab Plains">
+                <div class="farmer-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1567954970774-58d6aa699042?auto=format&fit=crop&w=600&q=80"
+                        alt="Sardar Gurpreet Singh">
+                    <span class="verified-badge"><i class="fa-solid fa-circle-check"></i> Jaivik Bharat Certified</span>
+                </div>
+                <div class="farmer-details">
+                    <div class="farmer-meta-top">
+                        <span class="distance"><i class="fa-solid fa-location-arrow"></i> Express Delivery</span>
+                        <span class="rating"><i class="fa-solid fa-star"></i> 4.9 (320)</span>
+                    </div>
+                    <h3>Sardar Gurpreet Singh</h3>
+                    <p class="farm-name">Golden Acres Soil Estate</p>
+                    <p class="farm-desc">Specializing in multi-generational, organic Sharbati wheat grains, heirloom
+                        basmati, and crop-rotation pulses.</p>
+                    <div class="farmer-footer">
+                        <span class="location-tag"><i class="fa-solid fa-location-dot"></i> Gurdaspur, Punjab</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Farmer Card 2 -->
+            <div class="farmer-card" data-loc="Western Ghats">
+                <div class="farmer-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=600&q=80"
+                        alt="Meenakshi Amma">
+                    <span class="verified-badge"><i class="fa-solid fa-circle-check"></i> ZBNF Natural Certified</span>
+                </div>
+                <div class="farmer-details">
+                    <div class="farmer-meta-top">
+                        <span class="distance"><i class="fa-solid fa-location-arrow"></i> Direct Air-Route</span>
+                        <span class="rating"><i class="fa-solid fa-star"></i> 5.0 (410)</span>
+                    </div>
+                    <h3>Meenakshi Amma</h3>
+                    <p class="farm-name">Sahyadri Permaculture Oasis</p>
+                    <p class="farm-desc">Pioneering multi-tier forest farming, certified premium spices, dark-tint cocoa
+                        beans, and organic rain-fed turmeric.</p>
+                    <div class="farmer-footer">
+                        <span class="location-tag"><i class="fa-solid fa-location-dot"></i> Wayanad, Kerala</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Farmer Card 3 -->
+            <div class="farmer-card" data-loc="Ooty Hills">
+                <div class="farmer-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?auto=format&fit=crop&w=600&q=80"
+                        alt="Rajesh Kumar">
+                    <span class="verified-badge"><i class="fa-solid fa-circle-check"></i> 100% Bio-Dynamic</span>
+                </div>
+                <div class="farmer-details">
+                    <div class="farmer-meta-top">
+                        <span class="distance"><i class="fa-solid fa-location-arrow"></i> High Altitude
+                            Cold-Chain</span>
+                        <span class="rating"><i class="fa-solid fa-star"></i> 4.8 (195)</span>
+                    </div>
+                    <h3>Rajesh Kumar</h3>
+                    <p class="farm-name">Nilgiri Highlands Farm</p>
+                    <p class="farm-desc">Cultivating crisp exotic English root vegetables, clean leafy salad assemblies,
+                        and premium mountain-mist tea leaves.</p>
+                    <div class="farmer-footer">
+                        <span class="location-tag"><i class="fa-solid fa-location-dot"></i> Ooty, Tamil Nadu</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. PRODUCT MARKETPLACE -->
+    <section id="marketplace" class="section marketplace-section">
+        <div class="section-header-row">
+            <div class="section-header">
+                <span class="sub-title">The Curated Vault</span>
+                <h2>Seasonal Yield Selection</h2>
+            </div>
+            <div class="search-filter-bar">
+                <div class="inline-search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="marketSearch" placeholder="Filter dynamic selection...">
+                </div>
+            </div>
+        </div>
+
+        <div class="marketplace-grid" id="productGrid">
+            <!-- Programmatically populated with 20+ authentic Indian luxury agricultural items -->
+        </div>
+    </section>
+
+    <!-- 5. FARM TRANSPARENCY SECTION -->
+    <section id="transparency" class="section transparency-section">
+        <div class="transparency-container">
+            <div class="transparency-visual">
+                <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=800&q=80"
+                    alt="Tracing Harvest Traceability">
+                <div class="glass-overlay-card">
+                    <h4><i class="fa-solid fa-shield-halved"></i> Jaivik Blockchain Logs</h4>
+                    <p>Every small batch listing contains batch codes charting soil testing analytics, extraction dates,
+                        and direct logistical milestones.</p>
+                </div>
+            </div>
+
+            <div class="transparency-content">
+                <span class="sub-title">Absolute Visibility</span>
+                <h2>Know Your Cultivator</h2>
+                <p class="section-desc">We operate unified direct logistics tracking your specific package from the
+                    exact field patch block right to your home station.</p>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-icon"><i class="fa-solid fa-seedling"></i></div>
+                        <div class="timeline-info">
+                            <h5>Phase 1: Sunrise Harvesting</h5>
+                            <p>Hand-picked at peak nutrient maturity curves across partner local farmlands.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon"><i class="fa-solid fa-box-open"></i></div>
+                        <div class="timeline-info">
+                            <h5>Phase 2: Eco-Packaging Hubs</h5>
+                            <p>Sorted carefully into clean, breathable canvas fibers and organic containers without
+                                plastic sealants.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon"><i class="fa-solid fa-truck-fast"></i></div>
+                        <div class="timeline-info">
+                            <h5>Phase 3: Hyper-Local Transit</h5>
+                            <p>Direct premium cold-chain delivery trucks safely maintain ideal crisp moisture levels
+                                directly to your urban layout.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. TESTIMONIAL SECTION -->
+    <section class="section testimonial-section">
+        <div class="section-header text-center">
+            <span class="sub-title">Patron Journals</span>
+            <h2>Ecosystem Sentiment</h2>
+        </div>
+        <div class="testimonial-slider">
+            <div class="testimonial-card">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="quote">"The premium A2 Vedic Ghee is truly authentic, bringing back the exact texture my
+                    grandparents used to prepare. Having absolute visibility over the farm origin is incredible."</p>
+                <div class="user-profile">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80"
+                        alt="Ananya S.">
+                    <div>
+                        <h5>Ananya Sharma</h5>
+                        <span>Culinary Director • Mumbai</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="quote">"Eliminating mid-tier supply agents means my community gets paid immediately at fair
+                    market value. We safely reinvest this to support regenerative land care methods."</p>
+                <div class="user-profile">
+                    <img src="https://images.unsplash.com/photo-1567954970774-58d6aa699042?auto=format&fit=crop&w=150&q=80"
+                        alt="Sardar G.">
+                    <div>
+                        <h5>Gurpreet Singh</h5>
+                        <span>Golden Acres Estate • Punjab</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. FARMER DASHBOARD UI -->
+    <section id="dashboard" class="section dashboard-section">
+        <div class="dashboard-wrapper">
+            <div class="db-sidebar">
+                <div class="db-user">
+                    <img src="https://images.unsplash.com/photo-1567954970774-58d6aa699042?auto=format&fit=crop&w=150&q=80"
+                        alt="Gurpreet Profile">
+                    <div>
+                        <h4>Kisan Dashboard</h4>
+                        <span class="status-indicator"><span class="dot"></span> Farm Node Live</span>
+                    </div>
+                </div>
+                <ul class="db-menu">
+                    <li class="active"><i class="fa-solid fa-chart-line"></i> Yield Revenue</li>
+                    <li><i class="fa-solid fa-seedling"></i> Active Inventory</li>
+                    <li><i class="fa-solid fa-truck-loading"></i> Dispatch Queue <span class="badge">9</span></li>
+                    <li><i class="fa-solid fa-wallet"></i> Direct Bank Payouts</li>
+                </ul>
+            </div>
+
+            <div class="db-main">
+                <div class="db-header">
+                    <h3>Operational Analytics</h3>
+                    <span class="db-date">Realtime Tracking Engine</span>
+                </div>
+
+                <!-- Earnings Metrics Widgets -->
+                <div class="metrics-grid">
+                    <div class="metric-widget">
+                        <div class="widget-top">
+                            <span>Total Net Revenue Share</span>
+                            <i class="fa-solid fa-indian-rupee-sign"></i>
+                        </div>
+                        <h2>₹1,42,800</h2>
+                        <span class="trend positive"><i class="fa-solid fa-arrow-up-right"></i> +18% vs last
+                            month</span>
+                    </div>
+
+                    <div class="metric-widget">
+                        <div class="widget-top">
+                            <span>Orders Successfully Filled</span>
+                            <i class="fa-solid fa-boxes-packing"></i>
+                        </div>
+                        <h2>542 Batches</h2>
+                        <span class="trend positive"><i class="fa-solid fa-arrow-up-right"></i> 100% cold-chain
+                            success</span>
+                    </div>
+
+                    <div class="metric-widget">
+                        <div class="widget-top">
+                            <span>Subscribed Regular Patrons</span>
+                            <i class="fa-solid fa-user-check"></i>
+                        </div>
+                        <h2>112 Homes</h2>
+                        <span class="trend positive"><i class="fa-solid fa-arrow-up-right"></i> +14%
+                            month-on-month</span>
+                    </div>
+                </div>
+
+                <!-- Inventory Progress System -->
+                <div class="db-content-split">
+                    <div class="db-card inventory-card-wrapper">
+                        <h4>Live Harvest Stock Allocation</h4>
+                        <div class="progress-container">
+                            <div class="progress-label">
+                                <span>Premium Sharbati Wheat Flour</span>
+                                <span>82% Allocated</span>
+                            </div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width: 82%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="progress-container">
+                            <div class="progress-label">
+                                <span>Organic Saffron Infused Honey</span>
+                                <span>94% Allocated</span>
+                            </div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width: 94%; background: var(--accent);"></div>
+                            </div>
+                        </div>
+
+                        <div class="progress-container">
+                            <div class="progress-label">
+                                <span>Wayanad Whole Black Pepper</span>
+                                <span>35% Allocated</span>
+                            </div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width: 35%; background: #2c6b56;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="db-card orders-card-wrapper">
+                        <h4>Realtime Purchase Feed</h4>
+                        <div class="order-feed-item">
+                            <div class="feed-icon"><i class="fa-solid fa-shopping-bag"></i></div>
+                            <div class="feed-details">
+                                <h6>Karan J. (Delhi) bought Desi Ghee Box</h6>
+                                <span>5 mins ago • ₹2,450 • Route: Fast Transit</span>
+                            </div>
+                        </div>
+                        <div class="order-feed-item">
+                            <div class="feed-icon"><i class="fa-solid fa-shopping-bag"></i></div>
+                            <div class="feed-details">
+                                <h6>Priya M. (Bangalore) bought Mango Crate</h6>
+                                <span>22 mins ago • ₹1,800 • Route: Air Freight</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. FOOTER -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-brand-side">
+                <a href="#" class="logo">KRISHI<span>LUXE</span></a>
+                <p>Architecting ethical, traceable, and direct agricultural trade across India. Delivering fresh
+                    agricultural yields directly from native farms straight to modern conscious homes.</p>
+                <div class="social-row">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links-side">
+                <div class="link-col">
+                    <h5>Discover</h5>
+                    <a href="#categories">Product Categories</a>
+                    <a href="#farmers">Producer Profiles</a>
+                    <a href="#marketplace">The Market Vault</a>
+                    <a href="#dashboard">Kisan Login</a>
+                </div>
+                <div class="link-col">
+                    <h5>Governance</h5>
+                    <a href="#">Traceability Protocols</a>
+                    <a href="#">Fair Pricing Metrics</a>
+                    <a href="#">Organic Certification</a>
+                </div>
+                <div class="link-col newsletter-col">
+                    <h5>Ecosystem Bulletins</h5>
+                    <p>Receive seasonal updates, unique crop arrivals, and harvest schedule notifications.</p>
+                    <div class="newsletter-input-box">
+                        <input type="email" placeholder="Enter your email address">
+                        <button><i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 KRISHILUXE India Platform. Engineered for absolute transparency. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
